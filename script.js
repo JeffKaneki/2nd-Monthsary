@@ -915,64 +915,8 @@ function generateChatGame() {
 // ========== LIGHTBOX ==========
 
 function initializeLightbox() {
-  const memoryCards = DOM.queryAll('.memory-card');
-  const lightbox = DOM.query('.lightbox');
-  const lightboxImage = DOM.query('.lightbox-image');
-  const lightboxClose = DOM.query('.lightbox-close');
-
-  memoryCards.forEach(card => {
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let touchMoved = false;
-
-    card.addEventListener('touchstart', (event) => {
-      touchMoved = false;
-      if (event.touches && event.touches[0]) {
-        touchStartX = event.touches[0].clientX;
-        touchStartY = event.touches[0].clientY;
-      }
-    }, { passive: true });
-
-    card.addEventListener('touchmove', (event) => {
-      if (event.touches && event.touches[0]) {
-        const moveX = event.touches[0].clientX;
-        const moveY = event.touches[0].clientY;
-        if (Math.abs(moveX - touchStartX) > 10 || Math.abs(moveY - touchStartY) > 10) {
-          touchMoved = true;
-        }
-      }
-    }, { passive: true });
-
-    card.addEventListener('touchend', (event) => {
-      if (!touchMoved) {
-        event.preventDefault();
-        const imageSrc = card.getAttribute('data-image') || 'assets/images/placeholder.jpg';
-        if (lightboxImage) lightboxImage.src = imageSrc;
-        if (lightbox) DOM.addClass(lightbox, 'active');
-      }
-    }, { passive: false });
-
-    DOM.on(card, 'click', () => {
-      const imageSrc = card.getAttribute('data-image') || 'assets/images/placeholder.jpg';
-      if (lightboxImage) lightboxImage.src = imageSrc;
-      if (lightbox) DOM.addClass(lightbox, 'active');
-    });
-  });
-
-  if (lightboxClose) {
-    DOM.onTouchOrClick(lightboxClose, (e) => {
-      e.preventDefault();
-      if (lightbox) DOM.removeClass(lightbox, 'active');
-    });
-  }
-
-  if (lightbox) {
-    DOM.on(lightbox, 'click', (e) => {
-      if (e.target === lightbox) {
-        DOM.removeClass(lightbox, 'active');
-      }
-    });
-  }
+  // Gallery is static now. Lightbox behavior is disabled intentionally.
+  return;
 }
 
 // ========== NOTIFICATIONS ==========
@@ -1089,7 +1033,6 @@ if (window.location.pathname.includes('special.html')) {
 document.addEventListener('DOMContentLoaded', () => {
   if (DOM.query('.memory-card')) {
     initializeTimeline();
-    initializeLightbox();
   }
 });
 
