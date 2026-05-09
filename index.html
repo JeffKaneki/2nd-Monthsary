@@ -13,6 +13,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Login Panel -->
+  <div class="login-panel hidden" id="loginPanel">
+    <div class="login-container">
+      <div class="login-header">
+        <h1>💜 Welcome Back, My Love</h1>
+        <p>Please enter your credentials to access our special celebration</p>
+      </div>
+      <form class="login-form" onsubmit="handleLogin(); return false;">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="login-button">Login</button>
+        <button type="button" class="hint-button" onclick="toggleHint()">💡 Hint</button>
+      </form>
+      <div class="hint-box hidden" id="hintBox">
+        <p><strong>Username:</strong> Alex</p>
+        <p><strong>Password:</strong> Biaca</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Page Loader -->
   <div class="page-loader">
     <div class="loader-spinner"></div>
@@ -31,6 +57,7 @@
     </ul>
     <button class="mobile-menu-toggle">☰</button>
     <button class="music-toggle">🔇</button>
+    <button class="logout-toggle" onclick="handleLogout()">🚪</button>
   </nav>
 
   <main>
