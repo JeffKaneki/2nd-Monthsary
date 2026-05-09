@@ -269,6 +269,12 @@ function handleLogout() {
       passwordInput.value = '';
     }
   }
+  
+  // Hide logout button
+  const logoutBtn = document.querySelector('.logout-toggle');
+  if (logoutBtn) {
+    logoutBtn.style.display = 'none';
+  }
 }
 
 // ========== PAGE LOADER ==========
@@ -915,7 +921,7 @@ function initializeLightbox() {
   const lightboxClose = DOM.query('.lightbox-close');
 
   memoryCards.forEach(card => {
-    DOM.on(card, 'click', () => {
+    DOM.onTouchOrClick(card, () => {
       const imageSrc = card.getAttribute('data-image') || 'assets/images/placeholder.jpg';
       if (lightboxImage) lightboxImage.src = imageSrc;
       if (lightbox) DOM.addClass(lightbox, 'active');
@@ -923,7 +929,8 @@ function initializeLightbox() {
   });
 
   if (lightboxClose) {
-    DOM.on(lightboxClose, 'click', () => {
+    DOM.onTouchOrClick(lightboxClose, (e) => {
+      e.preventDefault();
       if (lightbox) DOM.removeClass(lightbox, 'active');
     });
   }
@@ -1048,13 +1055,12 @@ if (window.location.pathname.includes('special.html')) {
 }
 
 // Initialize timeline if on main page
-if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+  if (DOM.query('.memory-card')) {
     initializeTimeline();
-    initializeMemoryGallery();
     initializeLightbox();
-  });
-}
+  }
+});
 
 // ========== ERROR HANDLING ==========
 
