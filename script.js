@@ -155,10 +155,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (sessionLogin === 'true') {
     handleLoginSuccess();
   } else {
-    // Show login panel on first load
+    // Show login panel on all pages if not logged in
     const loginPanel = document.getElementById('loginPanel');
     if (loginPanel) {
       loginPanel.classList.remove('hidden');
+      // Hide page loader when showing login
+      const loader = DOM.query('.page-loader');
+      if (loader) {
+        loader.classList.add('hidden');
+      }
       const usernameInput = document.getElementById('username');
       if (usernameInput) usernameInput.focus();
       // Allow Enter key to submit on password field
@@ -220,12 +225,49 @@ function handleLoginSuccess() {
     playBackgroundMusic();
     updateMusicToggle();
   }
+  
+  // Show logout button
+  const logoutBtn = document.querySelector('.logout-toggle');
+  if (logoutBtn) {
+    logoutBtn.style.display = 'flex';
+  }
 }
 
 function toggleHint() {
   const hintBox = document.getElementById('hintBox');
   if (hintBox) {
     hintBox.classList.toggle('hidden');
+  }
+}
+
+function handleLogout() {
+  // Clear login state
+  isLoggedIn = false;
+  sessionStorage.removeItem('loveWebsiteLogin');
+  localStorage.removeItem('loveWebsiteLogin');
+  
+  // Stop music
+  pauseBackgroundMusic();
+  
+  // Show login panel
+  const loginPanel = document.getElementById('loginPanel');
+  if (loginPanel) {
+    loginPanel.classList.remove('hidden');
+    // Hide page loader
+    const loader = DOM.query('.page-loader');
+    if (loader) {
+      loader.classList.add('hidden');
+    }
+    // Focus username input
+    const usernameInput = document.getElementById('username');
+    if (usernameInput) {
+      usernameInput.focus();
+      usernameInput.value = '';
+    }
+    const passwordInput = document.getElementById('password');
+    if (passwordInput) {
+      passwordInput.value = '';
+    }
   }
 }
 
