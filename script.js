@@ -921,7 +921,38 @@ function initializeLightbox() {
   const lightboxClose = DOM.query('.lightbox-close');
 
   memoryCards.forEach(card => {
-    DOM.onTouchOrClick(card, () => {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchMoved = false;
+
+    card.addEventListener('touchstart', (event) => {
+      touchMoved = false;
+      if (event.touches && event.touches[0]) {
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    card.addEventListener('touchmove', (event) => {
+      if (event.touches && event.touches[0]) {
+        const moveX = event.touches[0].clientX;
+        const moveY = event.touches[0].clientY;
+        if (Math.abs(moveX - touchStartX) > 10 || Math.abs(moveY - touchStartY) > 10) {
+          touchMoved = true;
+        }
+      }
+    }, { passive: true });
+
+    card.addEventListener('touchend', (event) => {
+      if (!touchMoved) {
+        event.preventDefault();
+        const imageSrc = card.getAttribute('data-image') || 'assets/images/placeholder.jpg';
+        if (lightboxImage) lightboxImage.src = imageSrc;
+        if (lightbox) DOM.addClass(lightbox, 'active');
+      }
+    }, { passive: false });
+
+    DOM.on(card, 'click', () => {
       const imageSrc = card.getAttribute('data-image') || 'assets/images/placeholder.jpg';
       if (lightboxImage) lightboxImage.src = imageSrc;
       if (lightbox) DOM.addClass(lightbox, 'active');
