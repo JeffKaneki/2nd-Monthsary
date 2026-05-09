@@ -1609,7 +1609,7 @@ footer {
 
 .memory-game-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   gap: var(--spacing-md);
   margin: var(--spacing-lg) 0;
 }
@@ -1967,7 +1967,12 @@ footer {
   }
 
   .memory-game-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+
+  .memory-game-grid .memory-card-game {
+    min-width: 0;
+    width: 100%;
   }
 
   .secret-message-button {
@@ -2122,8 +2127,13 @@ footer {
 
   /* Memories */
   .memory-game-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: var(--spacing-sm);
+  }
+
+  .memory-game-grid .memory-card-game {
+    min-width: 0;
+    width: 100%;
   }
 
   .memory-card {
