@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <meta name="description" content="Interactive Games - Second Monthsary Celebration">
+  <meta name="theme-color" content="#5d3a8e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Love Games 🎮 - Second Monthsary</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">💜 My Love</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#memories">Memories</a></li>
+      <li><a href="index.html#timeline">Timeline</a></li>
+      <li><a href="index.html#reasons">Why I Love You</a></li>
+      <li><a href="gamesUI.html">Games</a></li>
+      <li><a href="special.html">Special Letter</a></li>
+    </ul>
+    <button class="mobile-menu-toggle">☰</button>
+    <button class="music-toggle">🔇</button>
+  </nav>
+
+  <main>
+    <!-- Games Hero Section -->
+    <section class="hero" id="gamesHero" style="min-height: 60vh;">
+      <div class="hero-content">
+        <h1 class="hero-title">🎮 Love Games & Challenges</h1>
+        <p class="hero-subtitle">Test your knowledge, have fun, and celebrate our love with these interactive games and challenges!</p>
+      </div>
+    </section>
+
+    <!-- Games Container -->
+    <section id="games" data-animate>
+      <h2 class="section-title">Choose a Game</h2>
+      <p class="section-subtitle">Click on any game to start playing!</p>
+
+      <div class="games-container">
+        <div class="games-grid">
+          <!-- Game 1: Guess the Word -->
+          <div class="game-card" data-game="guess-word">
+            <div class="game-icon">🎯</div>
+            <div class="game-title">Guess the Word</div>
+            <div class="game-description">Figure out relationship-themed words with clues. Test your knowledge!</div>
+            <div class="game-difficulty">Medium</div>
+          </div>
+
+          <!-- Game 2: Love Quiz -->
+          <div class="game-card" data-game="quiz">
+            <div class="game-icon">💝</div>
+            <div class="game-title">Love Quiz</div>
+            <div class="game-description">Answer personalized questions about our relationship. How well do you know me?</div>
+            <div class="game-difficulty">Hard</div>
+          </div>
+
+          <!-- Game 3: Memory Match -->
+          <div class="game-card" data-game="memory">
+            <div class="game-icon">🧠</div>
+            <div class="game-title">Memory Match</div>
+            <div class="game-description">Match pairs of love-themed icons. Can you beat the timer?</div>
+            <div class="game-difficulty">Easy</div>
+          </div>
+
+          <!-- Game 4: Questions & Answers -->
+          <div class="game-card" data-game="questions">
+            <div class="game-icon">❓</div>
+            <div class="game-title">Know Me Better</div>
+            <div class="game-description">Quick questions to see how well you know me. Pick your answer!</div>
+            <div class="game-difficulty">Medium</div>
+          </div>
+
+          <!-- Game 5: Spin the Wheel -->
+          <div class="game-card" data-game="wheel">
+            <div class="game-icon">🎡</div>
+            <div class="game-title">Spin the Love Wheel</div>
+            <div class="game-description">Take a spin and see what romantic dare or question appears!</div>
+            <div class="game-difficulty">Fun</div>
+          </div>
+
+          <!-- Game 6: Personality Quiz -->
+          <div class="game-card" data-game="personality">
+            <div class="game-icon">🤔</div>
+            <div class="game-title">How Well Do You Know Me?</div>
+            <div class="game-description">Personalized questions with hidden answers. Reveal my secrets!</div>
+            <div class="game-difficulty">Medium</div>
+          </div>
+
+          <!-- Game 7: Guess Our Love Chat -->
+          <div class="game-card" data-game="chat">
+            <div class="game-icon">💬</div>
+            <div class="game-title">Guess Our Love Chat</div>
+            <div class="game-description">See what I said and guess what you responded with! Multiple choice challenge.</div>
+            <div class="game-difficulty">Medium</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" data-animate>
+      <h2 class="section-title">🏆 Your Score</h2>
+      <p class="section-subtitle">Track your progress as you play more games</p>
+
+      <div style="max-width: 600px; margin: 0 auto;">
+        <div class="counter-item">
+          <div class="counter-number" id="totalScore">0</div>
+          <div class="counter-label">Total Points</div>
+        </div>
+        <div class="counter-item" style="margin-top: 2rem;">
+          <div class="counter-number" id="gamesPlayed">0</div>
+          <div class="counter-label">Games Played</div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <button class="cta-button" onclick="resetScores()">Reset Score 🔄</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips" data-animate>
+      <h2 class="section-title">💡 Game Tips</h2>
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <div class="reason-text">📝 Pay close attention to the clues in Guess the Word</div>
+        </div>
+        <div class="reason-card">
+          <div class="reason-text">⏱️ Use the timer in Memory Match to challenge yourself</div>
+        </div>
+        <div class="reason-card">
+          <div class="reason-text">🎯 The Love Quiz tests how well you know me - think carefully!</div>
+        </div>
+        <div class="reason-card">
+          <div class="reason-text">🎡 Spin the wheel multiple times to see all the options</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-quote">
+        "Games are even more fun when played with someone you love. 💜"
+      </div>
+      <div class="footer-text">
+        <a href="index.html">← Back to Home</a> |
+        <a href="special.html">Special Letter →</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Game Modal -->
+  <div class="game-modal">
+    <div class="game-modal-content">
+      <button class="game-modal-close">✕</button>
+      <div class="game-content" id="gameContent"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+
+  <script>
+    // ========== GAME SYSTEM ==========
+
+    let currentGameState = {
+      score: 0,
+      gamesPlayed: 0,
+      memoryFlipped: [],
+      memoryMatches: 0,
+      quizCurrentQuestion: 0,
+      quizScore: 0,
+      currentQuestionIndex: 0,
+      currentPersonalityQuestion: 1
+    };
+
+    // Initialize when DOM loads
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeGameCards();
+      // Update displayed scores
+      updateScoreDisplay();
+
+      // Music toggle
+      const musicToggle = document.querySelector('.music-toggle');
+      if (musicToggle) {
+        musicToggle.addEventListener('click', () => {
+          toggleMusic();
+        });
+      }
+    });
+
+    // Also try to initialize immediately in case DOM is already loaded
+    if (document.readyState === 'loading') {
+      // DOM not ready, wait for DOMContentLoaded
+    } else {
+      // DOM already loaded
+      initializeGameCards();
+      updateScoreDisplay();
+    }
+
+    function initializeGameCards() {
+      // Game card click handlers
+      const gameCards = document.querySelectorAll('.game-card');
+      console.log('Found game cards:', gameCards.length);
+      gameCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const gameType = card.getAttribute('data-game');
+          console.log('Game card clicked:', gameType);
+          openGame(gameType);
+        });
+      });
+    }
+
+    function openGame(gameType) {
+      const modal = document.querySelector('.game-modal');
+      const content = document.getElementById('gameContent') || (modal && modal.querySelector('#gameContent'));
+
+      if (!modal || !content) {
+        console.error('Modal or content element not found:', { modal, content });
+        return;
+      }
+
+      // Reset game state
+      resetGameState();
+
+      let gameHtml = '';
+
+      switch(gameType) {
+        case 'guess-word':
+          gameHtml = createGuessWordGame();
+          break;
+        case 'quiz':
+          gameHtml = createLoveQuizGame();
+          break;
+        case 'memory':
+          gameHtml = createMemoryGame();
+          break;
+        case 'questions':
+          gameHtml = createQuestionsGame();
+          break;
+        case 'wheel':
+          gameHtml = createWheelGame();
+          break;
+        case 'personality':
+          gameHtml = createPersonalityGame();
+          break;
+        case 'chat':
+          gameHtml = createChatGame();
+          break;
+      }
+
+      content.innerHTML = gameHtml;
+      modal.classList.add('active');
+
+      // Small delay to ensure DOM is updated
+      setTimeout(() => {
+        setupGameListeners(gameType);
+      }, 10);
+    }
+
+    function resetGameState() {
+      currentGameState.memoryFlipped = [];
+      currentGameState.memoryMatches = 0;
+      currentGameState.quizCurrentQuestion = 0;
+      currentGameState.quizScore = 0;
+      currentGameState.currentQuestionIndex = 0;
+      currentGameState.currentPersonalityQuestion = 1;
+    }
+
+    // ========== GAME CREATION FUNCTIONS ==========
+
+    let currentGuessWord = null;
+
+    function createGuessWordGame() {
+      const words = CONFIG.GUESS_WORDS;
+      currentGuessWord = words[Math.floor(Math.random() * words.length)];
+      const blanks = '_'.repeat(currentGuessWord.word.length).split('').join(' ');
+
+      return `
+        <h2>🎯 Guess the Word</h2>
+        <p style="text-align: center; color: #e9d5ff; margin-bottom: 1rem; font-size: 0.95rem;">
+          Relationship-themed word guessing game. Figure out the word from the clue!
+        </p>
+        <div class="word-display">
+          <div class="word-clue">💭 Clue: ${currentGuessWord.clue}</div>
+          <div class="word-blank" id="wordBlanks">${blanks}</div>
+        </div>
+        <input type="text" class="input-field" id="guessInput" placeholder="Type your guess..." autocomplete="off" maxlength="${currentGuessWord.word.length}">
+        <div style="text-align: center;">
+          <button class="hint-button" id="hintBtn">💡 Hint</button>
+          <button class="submit-button" id="submitBtn">✨ Submit</button>
+        </div>
+        <div id="gameResult" style="margin-top: 1.5rem;"></div>
+      `;
+    }
+
+    function createLoveQuizGame() {
+      const questions = CONFIG.QUIZ_QUESTIONS;
+      let html = '<h2>💝 Love Quiz</h2>';
+      html += '<div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgress" style="width: 20%"></div></div>';
+
+      questions.forEach((q, idx) => {
+        // Shuffle options for this question
+        const shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
+        
+        html += `
+          <div class="quiz-question-item" id="question-${idx}" style="display: ${idx === 0 ? 'block' : 'none'};">
+            <div class="quiz-question">${q.q}</div>
+            <div class="quiz-options">
+              ${shuffledOptions.map((opt) => `
+                <button class="option-button" data-qindex="${idx}" data-correct="${q.correct}" data-answer="${opt}">
+                  ${opt}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      html += '<div id="quizResults" style="display: none;"></div>';
+      return html;
+    }
+
+    function createMemoryGame() {
+      const icons = ['❤️', '💜', '💖', '✨', '🌹', '💕', '💝', '🦋'];
+      const pairs = [...icons, ...icons].sort(() => Math.random() - 0.5);
+
+      let html = '<h2>🧠 Memory Match</h2>';
+      html += '<div style="text-align: center; color: #e9d5ff; margin: 1rem 0;">Matches: <span id="matchCount">0</span> / ' + icons.length + '</div>';
+      html += '<div class="memory-grid">';
+
+      pairs.forEach((icon, idx) => {
+        html += `<div class="memory-card-game" data-card="${idx}" data-icon="${icon}">?</div>`;
+      });
+
+      html += '</div>';
+      html += '<div style="text-align: center; margin-top: 1.5rem;">';
+      html += '<button class="play-again-button" id="resetMemoryBtn">🔄 Play Again</button>';
+      html += '<button class="submit-button" id="finishMemoryBtn" style="margin-left: 1rem;">🏁 Finish</button>';
+      html += '</div>';
+      return html;
+    }
+
+    function createQuestionsGame() {
+      return `
+        <h2>❓ Quick Questions</h2>
+        <div id="questionContainer">
+          <div class="quiz-question">What do I love most about you?</div>
+          <div class="quiz-options">
+            <button class="option-button" data-response="Your laugh - it's my favorite melody! 🎵">Your laugh</button>
+            <button class="option-button" data-response="Your heart - so pure and kind 💜">Your heart</button>
+            <button class="option-button" data-response="Your eyes - they see right into my soul ✨">Your eyes</button>
+            <button class="option-button" data-response="Everything! Every single thing about you is perfect to me 💕">Everything</button>
+          </div>
+        </div>
+        <div id="answerResponse" style="margin-top: 1.5rem;"></div>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <button class="submit-button" id="nextQuestionBtn">Next Question ➡️</button>
+        </div>
+      `;
+    }
+
+    function createWheelGame() {
+      const options = CONFIG.LOVE_WHEEL_OPTIONS;
+      return `
+        <h2>🎡 Spin the Love Wheel</h2>
+        <div style="text-align: center;">
+          <div id="wheelResult" style="font-size: 1.3rem; color: #ec4899; font-weight: bold; margin: 2rem 0; min-height: 40px; line-height: 1.6;"></div>
+          <button class="submit-button" id="spinBtn">Spin Wheel 🎰</button>
+        </div>
+        <div style="color: #e9d5ff; font-size: 0.85rem; margin-top: 2rem; background: rgba(217, 70, 239, 0.1); padding: 1rem; border-radius: 10px;">
+          <strong>Possible Results:</strong><br>
+          ${options.map(opt => `<div>✨ ${opt}</div>`).join('')}
+        </div>
+      `;
+    }
+
+    function createPersonalityGame() {
+      return `
+        <h2>🤔 How Well Do You Know Me?</h2>
+        <div id="personalityQuiz">
+          <div class="personality-question" id="personalityQ1">
+            <div class="quiz-question">What's my biggest dream?</div>
+            <button class="option-button" data-answer="To create beautiful, lasting memories with you and build a life filled with love and laughter 💜✨">
+              Click to reveal my answer 💭
+            </button>
+            <div class="answer-reveal" style="margin-top: 1.5rem; padding: 1rem; background: rgba(217, 70, 239, 0.1); border-radius: 10px; color: #e9d5ff; display: none;"></div>
+          </div>
+          <div class="personality-question" id="personalityQ2" style="display: none;">
+            <div class="quiz-question">What's my favorite way to spend time with you?</div>
+            <button class="option-button" data-answer="Just being together, talking about everything and nothing, with your hand in mine 💕">
+              Click to reveal my answer 💭
+            </button>
+            <div class="answer-reveal" style="margin-top: 1.5rem; padding: 1rem; background: rgba(217, 70, 239, 0.1); border-radius: 10px; color: #e9d5ff; display: none;"></div>
+          </div>
+          <div class="personality-question" id="personalityQ3" style="display: none;">
+            <div class="quiz-question">What makes me happiest?</div>
+            <button class="option-button" data-answer="Seeing you smile and knowing I'm the reason behind it ✨">
+              Click to reveal my answer 💭
+            </button>
+            <div class="answer-reveal" style="margin-top: 1.5rem; padding: 1rem; background: rgba(217, 70, 239, 0.1); border-radius: 10px; color: #e9d5ff; display: none;"></div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <button class="submit-button" id="nextPersonalityBtn" style="display: none;" onclick="nextPersonalityQuestion()">Next Question ➡️</button>
+          <button class="submit-button" id="finishPersonalityBtn" style="display: none;" onclick="finishPersonalityQuiz()">Finish Quiz 🏁</button>
+        </div>
+      `;
+    }
+
+    let chatGameState = {
+      currentRound: 0,
+      score: 0
+    };
+
+    function createChatGame() {
+      const chatRounds = [
+        {
+          myMessage: 'Hey love! I was waiting for you 💜',
+          yourCorrectReply: 'I was thinking about you all day...',
+          options: ['I was thinking about you all day...', 'Sorry I\'m late!', 'I\'ve been busy', 'Are you mad at me?']
+        },
+        {
+          myMessage: 'You\'re always on my mind too! 💕',
+          yourCorrectReply: 'You mean everything to me',
+          options: ['You mean everything to me', 'That\'s sweet', 'Me too!', 'I love you']
+        },
+        {
+          myMessage: 'You are my entire world ❤️',
+          yourCorrectReply: 'Forever yours, my love 💜',
+          options: ['Forever yours, my love 💜', 'And you\'re mine', 'I\'ll never leave you', 'You\'re my everything too']
+        }
+      ];
+
+      if (chatGameState.currentRound >= chatRounds.length) {
+        return generateChatResults();
+      }
+
+      const round = chatRounds[chatGameState.currentRound];
+      const shuffledOptions = [...round.options].sort(() => Math.random() - 0.5);
+
+      let html = '<h2>💬 Guess Our Love Chat</h2>';
+      html += `<div style="text-align: center; color: #e9d5ff; margin-bottom: 1rem; font-size: 0.9rem;">Round ${chatGameState.currentRound + 1} of ${chatRounds.length}</div>`;
+      html += '<div class="quiz-progress"><div class="quiz-progress-bar" id="chatProgress" style="width: ' + ((chatGameState.currentRound + 1) / chatRounds.length * 100) + '%"></div></div>';
+      
+      html += '<div style="margin: 2rem 0; padding: 1rem; background: rgba(93, 58, 142, 0.2); border-radius: 10px;">';
+      html += '<p style="color: #e9d5ff; margin-bottom: 1rem; text-align: left;"><strong>I said:</strong></p>';
+      html += `<div style="background: var(--gradient-button); color: white; padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem; text-align: right; word-wrap: break-word;">${round.myMessage}</div>`;
+      
+      html += '<p style="color: #e9d5ff; margin-bottom: 1rem; text-align: left;"><strong>What did you say?</strong></p>';
+      html += '<div class="quiz-options" style="display: flex; flex-direction: column; gap: 0.75rem;">';
+      shuffledOptions.forEach((opt) => {
+        html += `<button class="option-button chat-option" data-correct="${round.yourCorrectReply}" data-answer="${opt}" style="text-align: left;">${opt}</button>`;
+      });
+      html += '</div></div>';
+      html += '<div id="chatFeedback" style="margin-top: 1rem;"></div>';
+
+      return html;
+    }
+
+    function generateChatResults() {
+      const percentage = Math.round((chatGameState.score / 30) * 100);
+      let message = '';
+      if (percentage === 100) message = 'Perfect! You know exactly what I\'d say! 💯';
+      else if (percentage >= 80) message = 'Amazing! You know me so well! 🌟';
+      else if (percentage >= 60) message = 'Great! You understand me! 💜';
+      else message = 'Not bad! Let\'s chat more so you get to know me! 💕';
+
+      let html = '<div style="text-align: center; padding: 2rem; color: #e9d5ff;">';
+      html += '<h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Chat Complete! 🎉</h3>';
+      html += `<div style="font-size: 2rem; color: #ec4899; margin: 1.5rem 0;">${chatGameState.score} / 30 Points</div>`;
+      html += `<p style="font-size: 1.1rem; margin-bottom: 1rem;">${message}</p>`;
+      html += '<p style="opacity: 0.8;">You know me better than anyone! 💜✨</p>';
+      html += '</div>';
+      return html;
+    }
+
+    // ========== GAME LOGIC FUNCTIONS ==========
+
+    function setupGameListeners(gameType) {
+      // Close modal on X button
+      const closeBtn = document.querySelector('.game-modal-close');
+      if (closeBtn) {
+        closeBtn.onclick = () => closeGameModal();
+      }
+
+      // Close modal when clicking outside
+      const modal = document.querySelector('.game-modal');
+      if (modal) {
+        modal.onclick = (e) => {
+          if (e.target === modal) closeGameModal();
+        };
+      }
+
+      // Setup game-specific event listeners based on game type
+      switch(gameType) {
+        case 'guess-word':
+          setupGuessWordListeners();
+          break;
+        case 'quiz':
+          setupQuizListeners();
+          break;
+        case 'memory':
+          setupMemoryListeners();
+          break;
+        case 'questions':
+          setupQuestionsListeners();
+          break;
+        case 'wheel':
+          setupWheelListeners();
+          break;
+        case 'personality':
+          setupPersonalityListeners();
+          break;
+        case 'chat':
+          setupChatListeners();
+          break;
+      }
+    }
+
+    function setupGuessWordListeners() {
+      // Check if CONFIG is available
+      if (typeof CONFIG === 'undefined' || !CONFIG.GUESS_WORDS) {
+        console.error('CONFIG or GUESS_WORDS not available');
+        return;
+      }
+
+      // Use the word selected in createGuessWordGame
+      if (!currentGuessWord) {
+        console.error('No current guess word available');
+        return;
+      }
+
+      const hintBtn = document.getElementById('hintBtn');
+      const submitBtn = document.getElementById('submitBtn');
+      const input = document.getElementById('guessInput');
+
+      console.log('Setting up guess word listeners:', { hintBtn, submitBtn, input });
+
+      if (hintBtn) {
+        hintBtn.addEventListener('click', () => {
+          showWordHint(currentGuessWord.word, currentGuessWord.clue);
+        });
+      }
+
+      if (submitBtn) {
+        submitBtn.addEventListener('click', () => {
+          checkGuess(currentGuessWord.word);
+        });
+      }
+
+      if (input) {
+        input.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            checkGuess(currentGuessWord.word);
+          }
+        });
+      }
+    }
+
+    function setupQuizListeners() {
+      // Quiz options need listeners
+      const optionButtons = document.querySelectorAll('.option-button');
+
+      optionButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const qIndex = parseInt(btn.getAttribute('data-qindex'));
+          const correctAnswer = btn.getAttribute('data-correct');
+          const selectedAnswer = btn.getAttribute('data-answer');
+          selectQuizAnswer(qIndex, correctAnswer, selectedAnswer);
+        });
+      });
+    }
+
+    function setupMemoryListeners() {
+      const memoryCards = document.querySelectorAll('.memory-card-game');
+      memoryCards.forEach((card, index) => {
+        card.addEventListener('click', () => flipMemoryCard(index));
+      });
+
+      const resetBtn = document.getElementById('resetMemoryBtn');
+      const finishBtn = document.getElementById('finishMemoryBtn');
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', resetMemoryGame);
+      }
+
+      if (finishBtn) {
+        finishBtn.addEventListener('click', closeGameModal);
+      }
+    }
+
+    function setupQuestionsListeners() {
+      const optionButtons = document.querySelectorAll('#questionContainer .option-button');
+      const nextBtn = document.getElementById('nextQuestionBtn');
+
+      optionButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const response = btn.getAttribute('data-response');
+          showQuestionResponse(response);
+        });
+      });
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', nextQuestion);
+      }
+    }
+
+    function setupWheelListeners() {
+      const spinBtn = document.getElementById('spinBtn');
+      if (spinBtn) {
+        spinBtn.addEventListener('click', spinWheel);
+      }
+    }
+
+    function setupPersonalityListeners() {
+      const revealButtons = document.querySelectorAll('.personality-question .option-button');
+      const nextBtn = document.getElementById('nextPersonalityBtn');
+      const finishBtn = document.getElementById('finishPersonalityBtn');
+
+      revealButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const answer = btn.getAttribute('data-answer');
+          revealAnswer(btn, answer);
+        });
+      });
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          nextPersonalityQuestion();
+          // Reset button states for next question
+          const nextBtn = document.getElementById('nextPersonalityBtn');
+          const finishBtn = document.getElementById('finishPersonalityBtn');
+          if (nextBtn) nextBtn.style.display = 'none';
+          if (finishBtn) finishBtn.style.display = 'none';
+        });
+      }
+
+      if (finishBtn) {
+        finishBtn.addEventListener('click', finishPersonalityQuiz);
+      }
+    }
+
+    function setupChatListeners() {
+      const chatOptions = document.querySelectorAll('.chat-option');
+      
+      chatOptions.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const correctAnswer = btn.getAttribute('data-correct');
+          const selectedAnswer = btn.getAttribute('data-answer');
+          checkChatAnswer(correctAnswer, selectedAnswer);
+        });
+      });
+    }
+
+    function checkChatAnswer(correctAnswer, selectedAnswer) {
+      const feedback = document.getElementById('chatFeedback');
+      const isCorrect = selectedAnswer === correctAnswer;
+      
+      if (isCorrect) {
+        chatGameState.score += 10;
+        feedback.innerHTML = `
+          <div style="text-align: center; color: #00d084; padding: 1rem; background: rgba(0, 208, 132, 0.1); border-radius: 10px; font-weight: bold;">
+            ✨ That\'s exactly what I\'d say! +10 points 🎉
+          </div>
+        `;
+        triggerConfetti();
+      } else {
+        feedback.innerHTML = `
+          <div style="text-align: center; color: #ffd700; padding: 1rem; background: rgba(255, 215, 0, 0.1); border-radius: 10px;">
+            Close! I would have said: "${correctAnswer}"
+          </div>
+        `;
+      }
+      
+      // Disable all buttons
+      document.querySelectorAll('.chat-option').forEach(btn => btn.disabled = true);
+      
+      // Load next round after 3 seconds
+      setTimeout(() => {
+        chatGameState.currentRound++;
+        const gameContent = document.getElementById('gameContent');
+        if (gameContent) {
+          gameContent.innerHTML = createChatGame();
+          setTimeout(() => {
+            setupChatListeners();
+          }, 10);
+        }
+      }, 3000);
+    }
+
+    function closeGameModal() {
+      document.querySelector('.game-modal').classList.remove('active');
+    }
+
+    // Guess Word Game
+    function showWordHint(word, clue) {
+      const result = document.getElementById('gameResult');
+      if (result) {
+        const revealed = word.substring(0, Math.ceil(word.length / 2)) + '_'.repeat(Math.floor(word.length / 2));
+        result.innerHTML = `<div style="text-align: center; color: #a78bfa; font-size: 1.1rem; padding: 1rem; background: rgba(217, 70, 239, 0.1); border-radius: 10px;">💡 Hint: ${revealed}</div>`;
+      }
+    }
+
+    function checkGuess(correctWord) {
+      const input = document.getElementById('guessInput');
+      const result = document.getElementById('gameResult');
+
+      if (!input || !result) return;
+
+      const userGuess = input.value.toUpperCase();
+
+      if (userGuess === correctWord) {
+        result.innerHTML = `
+          <div style="text-align: center; color: #00d084; padding: 1rem; background: rgba(0, 208, 132, 0.1); border-radius: 10px; font-weight: bold; font-size: 1.1rem;">
+            ✨ Correct! You got it right! 🎉
+          </div>
+        `;
+        updateScore(10);
+        triggerConfetti();
+        
+        // Disable input and buttons during countdown
+        input.disabled = true;
+        const hintBtn = document.getElementById('hintBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        if (hintBtn) hintBtn.disabled = true;
+        if (submitBtn) submitBtn.disabled = true;
+        
+        // Load next word after 5 seconds
+        setTimeout(() => {
+          loadNextWord();
+        }, 5000);
+      } else if (userGuess === '') {
+        result.innerHTML = `<div style="text-align: center; color: #ff6b6b; padding: 1rem;">Please enter a guess!</div>`;
+      } else {
+        result.innerHTML = `<div style="text-align: center; color: #ff6b6b; padding: 1rem;">❌ Incorrect! Try again or use the hint.</div>`;
+      }
+    }
+
+    function loadNextWord() {
+      // Select a new random word
+      const words = CONFIG.GUESS_WORDS;
+      currentGuessWord = words[Math.floor(Math.random() * words.length)];
+      
+      // Update the game content
+      const gameContent = document.getElementById('gameContent');
+      if (gameContent) {
+        gameContent.innerHTML = createGuessWordGame();
+        
+        // Re-attach event listeners for the new game
+        setTimeout(() => {
+          setupGuessWordListeners();
+        }, 10);
+      }
+    }
+
+    // Love Quiz Game
+    function selectQuizAnswer(qIndex, correctAnswer, selectedAnswer) {
+      const questions = CONFIG.QUIZ_QUESTIONS;
+      const currentQ = questions[qIndex];
+
+      // Check if answer is correct by comparing the selected answer with the correct answer
+      const isCorrect = selectedAnswer === correctAnswer;
+      if (isCorrect) currentGameState.quizScore++;
+
+      // Hide current question
+      const currentQuestion = document.getElementById(`question-${qIndex}`);
+      if (currentQuestion) currentQuestion.style.display = 'none';
+
+      // Show next question or results
+      currentGameState.quizCurrentQuestion++;
+      if (currentGameState.quizCurrentQuestion < questions.length) {
+        const nextQuestion = document.getElementById(`question-${currentGameState.quizCurrentQuestion}`);
+        if (nextQuestion) nextQuestion.style.display = 'block';
+        updateQuizProgress();
+      } else {
+        showQuizResults();
+      }
+    }
+
+    function updateQuizProgress() {
+      const progressBar = document.getElementById('quizProgress');
+      if (progressBar) {
+        const progress = ((currentGameState.quizCurrentQuestion + 1) / CONFIG.QUIZ_QUESTIONS.length) * 100;
+        progressBar.style.width = progress + '%';
+      }
+    }
+
+    function showQuizResults() {
+      const score = currentGameState.quizScore;
+      const total = CONFIG.QUIZ_QUESTIONS.length;
+      const percentage = Math.round((score / total) * 100);
+
+      let message = '';
+      if (percentage >= 80) message = 'Perfect! You know me so well! 💯';
+      else if (percentage >= 60) message = 'Great job! You\'re getting to know me! 🌟';
+      else message = 'Keep learning about me! Every day is a new discovery! 💜';
+
+      const resultDiv = document.getElementById('quizResults');
+      if (resultDiv) {
+        resultDiv.innerHTML = `
+          <div style="text-align: center; padding: 2rem; background: rgba(217, 70, 239, 0.1); border-radius: 10px; color: #e9d5ff;">
+            <h3 style="color: #ec4899; margin-bottom: 1rem;">Quiz Complete! 🎉</h3>
+            <div style="font-size: 2rem; font-weight: bold; margin: 1rem 0;">${score}/${total} (${percentage}%)</div>
+            <p style="font-size: 1.1rem; margin: 1rem 0;">${message}</p>
+            <button class="submit-button" onclick="closeGameModal()">Finish Quiz 🏁</button>
+          </div>
+        `;
+        resultDiv.style.display = 'block';
+
+        updateScore(score * 5);
+        if (percentage >= 80) triggerConfetti();
+      }
+    }
+
+    // Memory Game
+    function flipMemoryCard(index) {
+      const card = document.querySelector(`[data-card="${index}"]`);
+      if (!card || card.classList.contains('matched') || card.classList.contains('flipped') || currentGameState.memoryFlipped.length >= 2) return;
+
+      card.classList.add('flipped');
+      card.textContent = card.getAttribute('data-icon');
+      currentGameState.memoryFlipped.push({ index, icon: card.getAttribute('data-icon') });
+
+      if (currentGameState.memoryFlipped.length === 2) {
+        setTimeout(checkMemoryMatch, 1000);
+      }
+    }
+
+    function checkMemoryMatch() {
+      const [card1, card2] = currentGameState.memoryFlipped;
+
+      if (card1.icon === card2.icon) {
+        // Match found
+        const card1El = document.querySelector(`[data-card="${card1.index}"]`);
+        const card2El = document.querySelector(`[data-card="${card2.index}"]`);
+        if (card1El) card1El.classList.add('matched');
+        if (card2El) card2El.classList.add('matched');
+        currentGameState.memoryMatches++;
+        const matchCount = document.getElementById('matchCount');
+        if (matchCount) matchCount.textContent = currentGameState.memoryMatches;
+
+        if (currentGameState.memoryMatches === 8) {
+          // Game complete
+          setTimeout(() => {
+            alert('🎉 Congratulations! You matched all pairs!');
+            updateScore(20);
+            triggerConfetti();
+          }, 500);
+        }
+      } else {
+        // No match
+        const card1El = document.querySelector(`[data-card="${card1.index}"]`);
+        const card2El = document.querySelector(`[data-card="${card2.index}"]`);
+        if (card1El) {
+          card1El.classList.remove('flipped');
+          card1El.textContent = '?';
+        }
+        if (card2El) {
+          card2El.classList.remove('flipped');
+          card2El.textContent = '?';
+        }
+      }
+
+      currentGameState.memoryFlipped = [];
+    }
+
+    function resetMemoryGame() {
+      currentGameState.memoryFlipped = [];
+      currentGameState.memoryMatches = 0;
+      const matchCount = document.getElementById('matchCount');
+      if (matchCount) matchCount.textContent = '0';
+
+      const cards = document.querySelectorAll('.memory-card-game');
+      cards.forEach(card => {
+        card.classList.remove('flipped', 'matched');
+        card.textContent = '?';
+      });
+    }
+
+    // Questions Game
+    const questions = [
+      {
+        q: 'What do I love most about you?',
+        options: ['Your laugh', 'Your heart', 'Your eyes', 'Everything'],
+        responses: [
+          'Your laugh - it\'s my favorite melody! 🎵',
+          'Your heart - so pure and kind 💜',
+          'Your eyes - they see right into my soul ✨',
+          'Everything! Every single thing about you is perfect to me 💕'
+        ]
+      },
+      {
+        q: 'What\'s my favorite memory with you?',
+        options: ['Our first date', 'Late night talks', 'Your smile', 'Being together'],
+        responses: [
+          'Our first date - when I knew you were special 💫',
+          'Late night talks - I could listen to you forever 💬',
+          'Your smile - it lights up my entire world ✨',
+          'Just being together - every moment is precious 💕'
+        ]
+      },
+      {
+        q: 'How do you make me feel?',
+        options: ['Happy', 'Safe', 'Loved', 'Complete'],
+        responses: [
+          'Happy - you bring joy to every day 🌈',
+          'Safe - I feel secure in your love 🛡️',
+          'Loved - you show me love in everything you do 💖',
+          'Complete - you make me whole 💑'
+        ]
+      }
+    ];
+
+    function showQuestionResponse(response) {
+      const resultDiv = document.getElementById('answerResponse');
+      if (resultDiv) {
+        resultDiv.innerHTML = `
+          <div style="padding: 1rem; background: rgba(217, 70, 239, 0.1); border-radius: 10px; color: #e9d5ff; text-align: center; font-size: 1.1rem;">
+            💕 ${response}
+          </div>
+        `;
+        updateScore(5);
+      }
+    }
+
+    function nextQuestion() {
+      currentGameState.currentQuestionIndex++;
+      const questionContainer = document.getElementById('questionContainer');
+      const answerResponse = document.getElementById('answerResponse');
+
+      if (currentGameState.currentQuestionIndex < questions.length) {
+        const q = questions[currentGameState.currentQuestionIndex];
+        if (questionContainer) {
+          questionContainer.innerHTML = `
+            <div class="quiz-question">${q.q}</div>
+            <div class="quiz-options">
+              ${q.options.map((opt, i) => `
+                <button class="option-button" onclick="showQuestionResponse('${q.responses[i]}')">${opt}</button>
+              `).join('')}
+            </div>
+          `;
+        }
+        if (answerResponse) answerResponse.innerHTML = '';
+      } else {
+        if (questionContainer) {
+          questionContainer.innerHTML = `
+            <div style="text-align: center; padding: 2rem; color: #e9d5ff;">
+              <h3>Questions Complete! 🎉</h3>
+              <p>You've learned so much about how I feel! 💜</p>
+            </div>
+          `;
+        }
+        const nextBtn = document.querySelector('#questionContainer + div');
+        if (nextBtn) nextBtn.style.display = 'none';
+        updateScore(15);
+        triggerConfetti();
+      }
+    }
+
+    // Wheel Game
+    function spinWheel() {
+      const result = document.getElementById('wheelResult');
+      if (result) {
+        const selectedOption = CONFIG.LOVE_WHEEL_OPTIONS[Math.floor(Math.random() * CONFIG.LOVE_WHEEL_OPTIONS.length)];
+        result.innerHTML = `<div style="animation: heartbeat 0.6s ease;">🎡 ${selectedOption}</div>`;
+        updateScore(5);
+      }
+    }
+
+    // Personality Quiz
+    function revealAnswer(btn, answer) {
+      const reveal = btn.parentElement.querySelector('.answer-reveal');
+      if (reveal) {
+        reveal.textContent = answer;
+        reveal.style.display = 'block';
+        btn.style.display = 'none';
+
+        // Show next button
+        const nextBtn = document.getElementById('nextPersonalityBtn');
+        const finishBtn = document.getElementById('finishPersonalityBtn');
+
+        if (currentGameState.currentPersonalityQuestion < 3) {
+          if (nextBtn) nextBtn.style.display = 'inline-block';
+        } else {
+          if (finishBtn) finishBtn.style.display = 'inline-block';
+        }
+
+        updateScore(10);
+        triggerConfetti();
+      }
+    }
+
+    function nextPersonalityQuestion() {
+      const currentQ = document.getElementById(`personalityQ${currentGameState.currentPersonalityQuestion}`);
+      if (currentQ) currentQ.style.display = 'none';
+
+      currentGameState.currentPersonalityQuestion++;
+      const nextQ = document.getElementById(`personalityQ${currentGameState.currentPersonalityQuestion}`);
+      if (nextQ) nextQ.style.display = 'block';
+
+      const nextBtn = document.getElementById('nextPersonalityBtn');
+      if (nextBtn) nextBtn.style.display = 'none';
+    }
+
+    function finishPersonalityQuiz() {
+      const quizDiv = document.getElementById('personalityQuiz');
+      if (quizDiv) {
+        quizDiv.innerHTML = `
+          <div style="text-align: center; padding: 2rem; color: #e9d5ff;">
+            <h3>Personality Quiz Complete! 🎉</h3>
+            <p>You now know some of my deepest thoughts and dreams! 💜</p>
+            <p>Thank you for wanting to understand me better. It means the world to me. ✨</p>
+          </div>
+        `;
+      }
+      const controls = document.querySelector('#personalityQuiz + div');
+      if (controls) controls.style.display = 'none';
+      updateScore(25);
+      triggerConfetti();
+    }
+
+    // ========== UTILITY FUNCTIONS ==========
+
+    function updateScore(points) {
+      let currentScore = parseInt(localStorage.getItem('totalScore') || '0');
+      let currentGames = parseInt(localStorage.getItem('gamesPlayed') || '0');
+
+      currentScore += points;
+      currentGames += 1;
+
+      localStorage.setItem('totalScore', currentScore.toString());
+      localStorage.setItem('gamesPlayed', currentGames.toString());
+
+      updateScoreDisplay();
+    }
+
+    function updateScoreDisplay() {
+      const totalScoreEl = document.getElementById('totalScore');
+      const gamesPlayedEl = document.getElementById('gamesPlayed');
+
+      const storedScore = localStorage.getItem('totalScore') || '0';
+      const storedGames = localStorage.getItem('gamesPlayed') || '0';
+
+      if (totalScoreEl) totalScoreEl.textContent = storedScore;
+      if (gamesPlayedEl) gamesPlayedEl.textContent = storedGames;
+    }
+
+    function resetScores() {
+      localStorage.setItem('totalScore', '0');
+      localStorage.setItem('gamesPlayed', '0');
+      updateScoreDisplay();
+    }
+
+    function toggleMusic() {
+      const toggle = document.querySelector('.music-toggle');
+      if (musicEnabled) {
+        pauseBackgroundMusic();
+        if (toggle) toggle.textContent = '🔇';
+      } else {
+        playBackgroundMusic();
+        if (toggle) toggle.textContent = '🔊';
+      }
+    }
+
+    // Confetti effect
+    function triggerConfetti() {
+      const confettiContainer = document.createElement('div');
+      confettiContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1000;
+      `;
+
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.textContent = ['✨', '💜', '💖', '🌹', '💕'][Math.floor(Math.random() * 5)];
+        confetti.style.cssText = `
+          position: absolute;
+          left: ${Math.random() * 100}%;
+          animation: confetti-fall ${2 + Math.random() * 3}s linear;
+          font-size: ${20 + Math.random() * 20}px;
+          color: ${['#ec4899', '#a78bfa', '#f59e0b', '#10b981', '#ef4444'][Math.floor(Math.random() * 5)]};
+        `;
+        confettiContainer.appendChild(confetti);
+      }
+
+      document.body.appendChild(confettiContainer);
+      setTimeout(() => {
+        if (document.body.contains(confettiContainer)) {
+          document.body.removeChild(confettiContainer);
+        }
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
